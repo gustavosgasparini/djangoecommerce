@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Contato{% endblock %}
+
+{% block main %}
+<div class="page-header">
+    <h1>Fale conosco</h1>
+</div>
+<br>
+    <form class="form-horizontal">
+        <fieldset>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="float-right">
+                            <label for="id_name" class="control-label">Nome</label>
+                        </div>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="id_name" placeholder="Seu nome" />
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="float-right">
+                                <label for="id_email" class="control-label">E-mail</label>
+                        </div>
+                    </div>                    
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="id_email" placeholder="Seu email" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group has-error">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="float-right">
+                                <label for="id_message" class="control-label">Mensagem</label>
+                        </div>
+                    </div>                
+                    <div class="col-md-10">
+                        <textarea class="form-control" rows="3" id="id_message"></textarea>
+                        <small class="help-block form-text text-muted">Este campo é obrigatório</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10">
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+                </div>
+            </div>
+            
+        </fieldset>
+    </form>
+
+{% endblock %}
+
+{% block footer %}                 
+{% endblock %}
