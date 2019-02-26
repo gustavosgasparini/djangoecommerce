@@ -19,3 +19,5 @@ def categories(request, slug):
     }
 
     return render(request, 'catalog/category.html', context)
+
+
