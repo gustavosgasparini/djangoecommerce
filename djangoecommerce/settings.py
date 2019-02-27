@@ -146,6 +146,6 @@ EMAIL_HOST_PASSWORD = ''
 DEFAULT_FROM_EMAIL = 'admin@djangoecommerce.com'
 
 try:
-    from local_settings import * 
+    from .local_settings import * 
 except ImportError:
     pass
