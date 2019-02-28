@@ -1,29 +1,17 @@
 {% extends "base.html" %}
-
 {% load widget_tweaks %}
 
-{% block title %}Contato{% endblock %}
+{% block title %}Login{% endblock %}
 
 {% block main %}
 <div class="page-header">
-    <h1>Fale conosco</h1>
+    <h1>Entrar</h1>
 </div>
 <br>
-    {% if success %}
-        <div class="alert alert-success" role="alert">
-            <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-11">
-                        Mensagem enviada com sucesso.
-                </div>
-            </div>
-        </div>
-    {% endif %}
-
-    <form class="form-horizontal needs-validation" action="" method="POST" novalidate>
+    <form class="form-horizontal needs-validation" method="POST" novalidate>
         {% csrf_token %}
         <fieldset>
-
+            
             {% for field in form %}
                 <div class="form-group">
                     <div class="row">
@@ -32,8 +20,8 @@
                                 <label for="validationCustom" class="control-label">{{ field.label }}</label>
                             </div>
                         </div>
-                        <div class="col-md-10">
-                            {% render_field field class='form-control' id='validationCustom' %}
+                        <div class="col-md-8">
+                            {% render_field field class='form-control' %}
                             <div class="invalid-feedback">
                                 Campo obrigatório.
                             </div>
@@ -45,12 +33,11 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-2"></div>
-                    <div class="col-md-10">
-                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    <div class="col-md-8">
+                        <button type="submit" class="btn btn-primary">Entrar</button>
                     </div>
                 </div>
             </div>
-            
         </fieldset>
     </form>
 
@@ -75,7 +62,8 @@
     })();
     </script>
 
+
 {% endblock %}
 
-{% block footer %}                 
+{% block footer %}                  
 {% endblock %}
