@@ -4,6 +4,7 @@ from django.db import models
 from django.core import validators
 from django.contrib.auth.models import AbstractBaseUser, UserManager, PermissionsMixin
 
+
 # Create your models here.
 class User(AbstractBaseUser, PermissionsMixin):
     
@@ -18,7 +19,7 @@ class User(AbstractBaseUser, PermissionsMixin):
             )
         ], help_text='Um nome curto que será usado para identificá-lo de forma única na plataforma'
     )
-    name = models.CharField('Nome', max_length=30, blank=True)
+    name = models.CharField('Nome completo', max_length=30, blank=True)
     email = models.EmailField('E-mail', unique=True)
     is_staff = models.BooleanField('Equipe', default=False)
     is_active = models.BooleanField('Ativo', default=True)
