@@ -13,21 +13,26 @@
         <fieldset>
             
             {% for field in form %}
-                <div class="form-group">
+                <div class="form-group{% if field.errors %} has-error{% endif %}">
                     <div class="row">
                         <div class="col-md-2">
                             <div class="float-md-right">
-                                <label for="validationCustom" class="control-label">{{ field.label }}</label>
+                                <label for="{{ field.auto_id }}" class="control-label">{{ field.label }}</label>
                             </div>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-10">
                             {% render_field field class='form-control' %}
                             <div class="invalid-feedback">
                                 Campo obrigatório.
                             </div>
+                            {% for error in field.errors %}
+                                <span class="help-block">
+                                    {{ error }} <br>
+                                </span>
+                            {% endfor %}
                         </div>
                     </div>
-                </div>              
+                </div>
             {% endfor %}
 
             <div class="form-group">

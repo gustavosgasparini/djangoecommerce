@@ -72,32 +72,17 @@ class LoginViewTestCase(TestCase):
         response = self.client.get(self.login_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'registration/login.html')
-        data = {'username': self.user.username, 'password': '123'}
+        data = {'username': self.user.email, 'password': '123'}
         response = self.client.post(self.login_url, data)
         redirect_url = reverse(settings.LOGIN_REDIRECT_URL)
         self.assertRedirects(response, redirect_url, status_code=302)
         self.assertTrue(response.wsgi_request.user.is_authenticated)
 
     def test_login_error(self):
-        data = {'username': self.user.username, 'password': '1234'}
+        data = {'username': self.user.email, 'password': '1234'}
         response = self.client.post(self.login_url, data)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'registration/login.html')
-        error_msg = ('Por favor, entre com um usuário  e senha corretos.'
-        ' Note que ambos os campos diferenciam maiúsculas e minúsculas.')
+        error_msg = ('Por favor, entre com um E-mail  e senha corretos. Note que ambos os campos diferenciam maiúsculas e minúsculas.')
         self.assertFormError(response, 'form', None, error_msg)
-
-
-class RegisterViewTestCase(TestCase):
-
-    def setUp(self):
-        self.client = Client()
-        self.register_url = reverse('register')
-
-    def test_register_ok(self):
-        data = {'username':'admin', 'password1': 'fulano159', 'password2': 'fulano159'}
-        response = self.client.post(self.register_url, data)
-        redirect_url = reverse('index')
-        self.assertRedirects(response, redirect_url)
-        self.assertEquals(User.objects.count(), 1)
         
