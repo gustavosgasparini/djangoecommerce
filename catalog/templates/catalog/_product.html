@@ -1,0 +1,16 @@
+<div class="col-sm-6 col-md-4">
+    <div class="img-thumbnail">
+        <a href="{{ product.get_absolute_url }}">
+            <img class="img-edit" src="http://placehold.it/350x250" alt="" />
+        </a>
+        <div class="caption">
+            <h3>{{product}}</h3>
+            <p>{{product.description|linebreaks}}</p>
+            <h1 class="float-xl-right h1-edit">R$ {{product.price}}</h1>
+            <p>
+                <a href="{{ product.get_absolute_url }}" class="btn btn-success" role="button">Detalhes</a> 
+                <a href="{% url 'checkout:create_cartitem' product.slug %}" class="btn btn-secondary" role="button">Adicionar</a>
+            </p>
+        </div>
+    </div>
+</div>

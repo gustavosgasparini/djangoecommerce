@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import View, TemplateView
+from django.contrib import messages
 
 from core.forms import ContactForm
 
@@ -18,6 +19,8 @@ def contact(request):
     if form.is_valid():
         form.send_email()
         success = True
+    elif request.method == 'POST':
+        messages.error(request, 'Formulário inválido. Preencha todos os campos corretamente.')
    
     context = {
         'form': form,
@@ -25,3 +28,4 @@ def contact(request):
     }
 
     return render(request, 'contact.html', context)
+    
