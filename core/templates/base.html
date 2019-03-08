@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="{% static 'assets/bootstrap.css' %}">
         <link rel="stylesheet" href="{% static 'assets/bootstrap.min.css' %}">
         <link rel="stylesheet" href="{% static 'assets/style.css' %}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <title>{% block title %}Django e-commerce{% endblock %}</title>
     </head>
     <body>
@@ -53,6 +54,9 @@
                                 <a class="nav-link" href="{% url 'accounts:register' %}">Registrar</a>
                             </li>                       
                         {% endif %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'checkout:cart_item' %}"><i class="fas fa-shopping-cart"></i></a>
+                        </li>
                     </ul>
                 </div>
             </div>
